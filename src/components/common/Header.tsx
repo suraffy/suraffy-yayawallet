@@ -13,10 +13,14 @@ const Header = () => {
             </a>
           </li>
           <li>
-            <a href="">Help&nbsp;Center</a>
+            <a href="" className="hover:text-blue-600">
+              Help&nbsp;Center
+            </a>
           </li>
           <li>
-            <a href="">Login</a>
+            <a href="" className="hover:text-blue-600">
+              Login
+            </a>
           </li>
         </ul>
       </header>
