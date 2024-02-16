@@ -1,13 +1,25 @@
+import { useState } from "react";
+
 const SearchBar = () => {
+  const [selectValue, setSelectValue] = useState("");
+  const [searchValue, setSearchValue] = useState("");
+
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log({ selectValue, searchValue });
+  };
+
   return (
     <div className="container mt-10">
-      <form className="max-w-lg">
+      <form className="max-w-lg" onSubmit={handleFormSubmit}>
         <div className="flex">
           <select
             id="countries"
-            className="bg-gray-50 border w-60 border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 outline-none"
+            className="bg-gray-50 border w-60 border-gray-300 border-r-0 text-gray-900 rounded-lg focus:ring-blue-300 focus:border-blue-300 block p-2.5 outline-none"
+            value={selectValue}
+            onChange={(e) => setSelectValue(e.target.value)}
           >
-            <option selected>Search Keyword</option>
+            <option value={""}>Select search term</option>
             <option value="sender">Sender account</option>
             <option value="receive">Receiver account</option>
             <option value="cause">Cause</option>
@@ -18,8 +30,10 @@ const SearchBar = () => {
             <input
               type="search"
               id="search-dropdown"
-              className="block p-2.5 w-full z-20 text-gray-900 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:border-blue-200 outline-blue-200"
+              className="block p-2.5 w-full z-20 text-gray-900 bg-gray-50 rounded-e-lg border-e-gray-200 border-s-2 border border-gray-300 focus:border-blue-200 outline-blue-200"
               placeholder="Sender, Receiver, Cause, ID..."
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
             />
             <button
               type="submit"
