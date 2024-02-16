@@ -58,7 +58,9 @@ const Dashboard = () => {
                 Prev
               </button>
 
-              <button className="border-y py-1 px-4">{page}</button>
+              <button className="border-y border-blue-600 py-1 px-4 bg-blue-600 text-white">
+                {page}
+              </button>
               <button
                 disabled={page >= lastPage}
                 className="border py-1 px-4 hover:bg-blue-50"
