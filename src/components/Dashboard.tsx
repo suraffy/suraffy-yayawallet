@@ -65,7 +65,7 @@ const Dashboard = () => {
               </button>
               <button
                 disabled={page >= lastPage}
-                className="border py-1 px-4 hover:bg-blue-50"
+                className="border py-1 px-4 hover:bg-blue-50 disabled:opacity-50"
                 onClick={() => setPage(page + 1)}
               >
                 Next
