@@ -40,7 +40,15 @@ const Dashboard = () => {
         {isLoading ? (
           <p>Loading...</p>
         ) : (
-          <TanstackTable data={transactions} columns={columns} />
+          <>
+            <TanstackTable data={transactions} columns={columns} />
+            <div className="mt-5">
+              <button className="border px-3">Prev</button>
+
+              <button className="border px-3">{1}</button>
+              <button className="border px-3">Next</button>
+            </div>
+          </>
         )}
       </div>
     </>
