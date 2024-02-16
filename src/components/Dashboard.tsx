@@ -16,7 +16,9 @@ const columns = [
 
 const Dashboard = () => {
   const apiEndpoint = "https://sura-yaya-api.onrender.com/transactions";
-  const { data, isLoading } = useQuery("suraU", () => axios.get(apiEndpoint));
+  const { data, isLoading } = useQuery("transaction", () =>
+    axios.get(apiEndpoint)
+  );
 
   const transactions = data?.data.data.map((t) => ({
     transactionID: t.id,
