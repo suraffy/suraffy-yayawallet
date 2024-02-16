@@ -5,6 +5,7 @@ import axios from "axios";
 import Header from "./common/Header";
 import TanstackTable from "./common/TanstackTable";
 import { Transaction } from "./common/TransactionType";
+import Footer from "./common/Footer";
 
 const columns = [
   { accessorKey: "transactionID", header: "Transaction ID" },
@@ -69,6 +70,8 @@ const Dashboard = () => {
           </div>
         )}
       </div>
+
+      <Footer />
     </>
   );
 };
