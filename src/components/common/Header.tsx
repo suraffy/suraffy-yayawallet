@@ -8,17 +8,17 @@ const Header = () => {
 
         <ul className="flex text-lg">
           <li className="hover:bg-blue-50 flex items-center">
-            <a href="" className="font-semibold text-blue-800 p-4">
+            <a href="#" className="font-semibold text-blue-800 p-4">
               Dashboard
             </a>
           </li>
           <li className="hover:bg-blue-50 flex items-center">
-            <a href="" className="hover:text-blue-800 p-4">
+            <a href="#" className="hover:text-blue-800 p-4">
               Help&nbsp;Center
             </a>
           </li>
           <li className="hover:bg-blue-50 flex items-center">
-            <a href="" className="hover:text-blue-800 p-4">
+            <a href="#" className="hover:text-blue-800 p-4">
               Login
             </a>
           </li>
