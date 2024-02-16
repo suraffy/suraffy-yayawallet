@@ -3,7 +3,6 @@ import {
   flexRender,
   getCoreRowModel,
   useReactTable,
-  getPaginationRowModel,
 } from "@tanstack/react-table";
 import { Transaction } from "./TransactionType";
 
@@ -17,7 +16,6 @@ const TanstackTable = ({ data, columns }: Props) => {
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
   });
 
   return (
@@ -57,32 +55,6 @@ const TanstackTable = ({ data, columns }: Props) => {
           ))}
         </tbody>
       </table>
-
-      <div className="mt-5">
-        <button className="border px-3" onClick={() => table.setPageIndex(0)}>
-          First page
-        </button>
-        <button
-          disabled={!table.getCanPreviousPage()}
-          className="border px-3"
-          onClick={() => table.previousPage()}
-        >
-          {"<<"}
-        </button>
-        <button
-          disabled={!table.getCanNextPage()}
-          className="border px-3"
-          onClick={() => table.nextPage()}
-        >
-          {">>"}
-        </button>
-        <button
-          className="border px-3"
-          onClick={() => table.setPageIndex(table.getPageCount() - 1)}
-        >
-          Last page
-        </button>
-      </div>
     </>
   );
 };
