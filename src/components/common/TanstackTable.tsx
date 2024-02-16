@@ -23,11 +23,11 @@ const TanstackTable = ({ data, columns }: Props) => {
       <table className="table-auto border-collapse w-full">
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id} className="bg-blue-50">
+            <tr key={headerGroup.id} className="bg-blue-500 text-gray-50">
               {headerGroup.headers.map((header) => (
                 <th
                   key={header.id}
-                  className="border-t border-b border-slate-100 text-left py-2 px-4"
+                  className="border-t border-b border-slate-100 text-left py-2 px-4 font-medium"
                 >
                   {header.isPlaceholder
                     ? null
@@ -42,7 +42,7 @@ const TanstackTable = ({ data, columns }: Props) => {
         </thead>
         <tbody>
           {table.getRowModel().rows.map((row) => (
-            <tr key={row.id} className="hover:bg-blue-50">
+            <tr key={row.id} className="hover:bg-gray-100">
               {row.getVisibleCells().map((cell) => (
                 <td
                   key={cell.id}
