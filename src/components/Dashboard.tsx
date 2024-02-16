@@ -3,6 +3,7 @@ import axios from "axios";
 
 import Header from "./common/Header";
 import TanstackTable from "./common/TanstackTable";
+import { Transaction } from "./common/TransactionType";
 
 const columns = [
   { accessorKey: "transactionID", header: "Transaction ID" },
@@ -20,7 +21,7 @@ const Dashboard = () => {
     axios.get(apiEndpoint)
   );
 
-  const transactions = data?.data.data.map((t) => ({
+  const transactions = data?.data.data.map((t: Transaction) => ({
     transactionID: t.id,
     sender: t.sender.name,
     receiver: t.receiver.name,
