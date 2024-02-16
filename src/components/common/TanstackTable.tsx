@@ -5,7 +5,7 @@ import {
   useReactTable,
   getPaginationRowModel,
 } from "@tanstack/react-table";
-import { Transaction } from "../../db";
+import { Transaction } from "./TransactionType";
 
 interface Props {
   data: Transaction[];
