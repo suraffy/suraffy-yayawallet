@@ -22,7 +22,7 @@ const Dashboard = () => {
   const [page, setPage] = useState(1);
 
   const apiEndpoint = "https://sura-yaya-api.onrender.com/transactions";
-  const { data, isLoading } = useQuery(
+  const { data, isLoading, isError } = useQuery(
     ["transaction", page],
     () => axios.get(`${apiEndpoint}?p=${page}`),
     { keepPreviousData: true }
@@ -41,13 +41,19 @@ const Dashboard = () => {
     createdAt: new Date(t.created_at_time).toISOString(),
   }));
 
+  const handleSearchTransaction = (searchValue: string) => {
+    console.log(searchValue);
+  };
+
   return (
     <>
       <Header />
-      <SearchBar />
+      <SearchBar onSearch={handleSearchTransaction} />
       <div className="containerr px-5 mt-5">
         {isLoading ? (
           <p>Loading...</p>
+        ) : isError ? (
+          <p>Not Found - 404</p>
         ) : (
           <div className="">
             <TanstackTable data={transactions} columns={columns} />
