@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import axios from "axios";
 
 import Header from "./common/Header";
+import SearchBar from "./common/SearchBar";
 import TanstackTable from "./common/TanstackTable";
 import { Transaction } from "./common/TransactionType";
 import Footer from "./common/Footer";
@@ -43,6 +44,7 @@ const Dashboard = () => {
   return (
     <>
       <Header />
+      <SearchBar />
       <div className="containerr px-5 mt-5">
         {isLoading ? (
           <p>Loading...</p>
