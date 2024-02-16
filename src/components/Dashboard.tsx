@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useQuery } from "react-query";
 import axios from "axios";
 
@@ -16,10 +17,17 @@ const columns = [
 ];
 
 const Dashboard = () => {
+  const [page, setPage] = useState(1);
+
   const apiEndpoint = "https://sura-yaya-api.onrender.com/transactions";
-  const { data, isLoading } = useQuery("transaction", () =>
-    axios.get(apiEndpoint)
+  const { data, isLoading } = useQuery(
+    ["transaction", page],
+    () => axios.get(`${apiEndpoint}?p=${page}`),
+    { keepPreviousData: true }
   );
+
+  const lastPage = data?.data.lastPage;
+  console.log(lastPage);
 
   const transactions = data?.data.data.map((t: Transaction) => ({
     transactionID: t.id,
@@ -31,8 +39,6 @@ const Dashboard = () => {
     createdAt: t.created_at_time,
   }));
 
-  console.log(transactions);
-
   return (
     <>
       <Header />
@@ -40,15 +46,29 @@ const Dashboard = () => {
         {isLoading ? (
           <p>Loading...</p>
         ) : (
-          <>
+          <div className="">
             <TanstackTable data={transactions} columns={columns} />
-            <div className="mt-5">
-              <button className="border px-3">Prev</button>
+            <div className="my-10 flxe text-center mr-40">
+              <button
+                disabled={page === 1}
+                className="border py-1 px-4 hover:bg-blue-50"
+                onClick={() => setPage(page - 1)}
+              >
+                Prev
+              </button>
 
-              <button className="border px-3">{1}</button>
-              <button className="border px-3">Next</button>
+              <button className="border-y py-1 px-4 hover:bg-blue-50">
+                {page}
+              </button>
+              <button
+                disabled={page >= lastPage}
+                className="border py-1 px-4 hover:bg-blue-50"
+                onClick={() => setPage(page + 1)}
+              >
+                Next
+              </button>
             </div>
-          </>
+          </div>
         )}
       </div>
     </>
