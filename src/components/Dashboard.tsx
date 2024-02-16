@@ -51,15 +51,13 @@ const Dashboard = () => {
             <div className="my-10 flxe text-center mr-40">
               <button
                 disabled={page === 1}
-                className="border py-1 px-4 hover:bg-blue-50"
+                className="border py-1 px-4 hover:bg-blue-50 disabled:opacity-50"
                 onClick={() => setPage(page - 1)}
               >
                 Prev
               </button>
 
-              <button className="border-y py-1 px-4 hover:bg-blue-50">
-                {page}
-              </button>
+              <button className="border-y py-1 px-4">{page}</button>
               <button
                 disabled={page >= lastPage}
                 className="border py-1 px-4 hover:bg-blue-50"
