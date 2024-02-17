@@ -32,17 +32,12 @@ const Dashboard = () => {
   const [page, setPage] = useState(1);
   const [searchKeyword, setSearchKeyword] = useState("");
 
-  const transactionsUrl = "https://sura-yaya-api.onrender.com/transactions";
+  const transactionsUrl =
+    "https://sura-yaya-api.onrender.com/transactions?p=" + page;
   const searchUrl = "https://sura-yaya-api.onrender.com/search";
 
-  // const { data, isLoading, isError } = useQuery(
-  //   ["transaction", page],
-  //   () => axios.get(`${apiEndpoint}?p=${page}`),
-  //   { keepPreviousData: true }
-  // );
-
   const apiEndpoint = searchKeyword === "" ? transactionsUrl : searchUrl;
-  const key = searchKeyword === "" ? "transaction" : "search";
+  const key = searchKeyword === "" ? ["transaction", page] : "search";
   const method = searchKeyword === "" ? "GET" : "POST";
 
   const { data, isLoading, isError } = useFetchData(key, method, apiEndpoint, {
