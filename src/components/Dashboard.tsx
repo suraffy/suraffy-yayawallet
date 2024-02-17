@@ -1,11 +1,10 @@
 import { useState } from "react";
-import { useQuery } from "react-query";
-import axios from "axios";
+import useFetchData from "./hooks/useFetchData";
+import { Transaction } from "./common/TransactionType";
+import TanstackTable from "./common/TanstackTable";
 
 import Header from "./common/Header";
 import SearchBar from "./common/SearchBar";
-import TanstackTable from "./common/TanstackTable";
-import { Transaction } from "./common/TransactionType";
 import Footer from "./common/Footer";
 
 const columns = [
@@ -20,13 +19,24 @@ const columns = [
 
 const Dashboard = () => {
   const [page, setPage] = useState(1);
+  const [searchKeyword, setSearchKeyword] = useState("");
 
-  const apiEndpoint = "https://sura-yaya-api.onrender.com/transactions";
-  const { data, isLoading, isError } = useQuery(
-    ["transaction", page],
-    () => axios.get(`${apiEndpoint}?p=${page}`),
-    { keepPreviousData: true }
-  );
+  const transactionsUrl = "https://sura-yaya-api.onrender.com/transactions";
+  const searchUrl = "https://sura-yaya-api.onrender.com/search";
+
+  // const { data, isLoading, isError } = useQuery(
+  //   ["transaction", page],
+  //   () => axios.get(`${apiEndpoint}?p=${page}`),
+  //   { keepPreviousData: true }
+  // );
+
+  const apiEndpoint = searchKeyword === "" ? transactionsUrl : searchUrl;
+  const key = searchKeyword === "" ? "transaction" : "search";
+  const method = searchKeyword === "" ? "GET" : "POST";
+
+  const { data, isLoading, isError } = useFetchData(key, method, apiEndpoint, {
+    query: searchKeyword,
+  });
 
   const lastPage = data?.data.lastPage;
   console.log(lastPage);
@@ -42,6 +52,7 @@ const Dashboard = () => {
   }));
 
   const handleSearchTransaction = (searchValue: string) => {
+    setSearchKeyword(searchValue);
     console.log(searchValue);
   };
 
