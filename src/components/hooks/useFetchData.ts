@@ -9,7 +9,7 @@ const useFetchData = (
 ) => {
   const fetchData = () => {
     if (method === "GET") return axios.get(url);
-    if (method === "POST") return axios.post(url, JSON.stringify(body));
+    if (method === "POST") return axios.post(url, body);
   };
 
   return useQuery(key, fetchData, {
