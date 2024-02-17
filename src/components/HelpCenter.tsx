@@ -1,28 +1,23 @@
+import Card from "./common/Card";
+
 const HelpCenter = () => {
   return (
-    <div className="container my-10">
-      <div className="row">
-        <div className="card">
-          <h2>Search</h2>
-          <ul>
-            <li>Search transactions by - </li>
-            <li>Sender account</li>
-            <li>Receiver account</li>
-            <li>Transaction Cause</li>
-          </ul>
-        </div>
+    <div className="my-40 bg-blue-50 py-20" id="help-center">
+      <div className="container">
+        <div className="flex gap-y-8 justify-center items-center sm:gap-y-0 sm:gap-x-8 sm:items-stretch flex-col sm:flex-row">
+          <Card
+            header="Digital wallet payment"
+            body="An advanced digital wallet payment system in which we are integrating various functionalities of digital transactions."
+          />
+          <Card
+            header="Search transaction"
+            body="Search transaction by sender account, receiver account, cause, or transaction Id."
+          />
 
-        <div className="card">
-          <h2>Sort</h2>
-          <ul>
-            <li>Click on a header to sort</li>
-            <li>Click again to sort in descending order</li>
-            <li>Click again to disable sorting</li>
-          </ul>
-        </div>
-
-        <div className="card">
-          <h2>Transactions</h2>
+          <Card
+            header="Sort transactions"
+            body="Sort transaction by clicking the one of the table header. Click again to sort in descending order. And click again for the third time to remove sorting."
+          />
         </div>
       </div>
     </div>
