@@ -34,7 +34,7 @@ const Dashboard = () => {
 
   const transactionsUrl =
     "https://sura-yaya-api.onrender.com/transactions?p=" + page;
-  const searchUrl = "http://localhost:3000/search";
+  const searchUrl = "https://sura-yaya-api.onrender.com/search";
 
   const apiEndpoint = searchKeyword === "" ? transactionsUrl : searchUrl;
   const key =
