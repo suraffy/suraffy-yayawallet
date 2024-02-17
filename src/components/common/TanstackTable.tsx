@@ -3,8 +3,10 @@ import {
   flexRender,
   getCoreRowModel,
   useReactTable,
+  getSortedRowModel,
 } from "@tanstack/react-table";
 import { Transaction } from "./TransactionType";
+import { useState } from "react";
 
 interface Props {
   data: Transaction[];
@@ -12,10 +14,17 @@ interface Props {
 }
 
 const TanstackTable = ({ data, columns }: Props) => {
+  const [sorting, setSorting] = useState();
+
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    state: {
+      sorting: sorting,
+    },
+    onSortingChange: setSorting,
   });
 
   return (
@@ -27,6 +36,7 @@ const TanstackTable = ({ data, columns }: Props) => {
               {headerGroup.headers.map((header) => (
                 <th
                   key={header.id}
+                  onClick={header.column.getToggleSortingHandler()}
                   className="border-t border-b border-slate-100 text-left p-3 font-medium"
                 >
                   {header.isPlaceholder
@@ -35,6 +45,8 @@ const TanstackTable = ({ data, columns }: Props) => {
                         header.column.columnDef.header,
                         header.getContext()
                       )}
+
+                  {{ asc: "⬆", desc: "⬇" }[header.column.getIsSorted() ?? null]}
                 </th>
               ))}
             </tr>
