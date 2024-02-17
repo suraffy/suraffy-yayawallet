@@ -5,6 +5,7 @@ import TanstackTable from "./common/TanstackTable";
 
 import Header from "./common/Header";
 import SearchBar from "./common/SearchBar";
+import HelpCenter from "./HelpCenter";
 import Footer from "./common/Footer";
 
 const columns = [
@@ -101,6 +102,7 @@ const Dashboard = () => {
         )}
       </div>
 
+      <HelpCenter />
       <Footer />
     </>
   );
