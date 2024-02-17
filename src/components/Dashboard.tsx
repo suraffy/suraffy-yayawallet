@@ -5,6 +5,7 @@ import TanstackTable from "./common/TanstackTable";
 
 import Header from "./common/Header";
 import SearchBar from "./common/SearchBar";
+import Pagination from "./common/Pagination";
 import HelpCenter from "./HelpCenter";
 import Footer from "./common/Footer";
 
@@ -61,6 +62,10 @@ const Dashboard = () => {
     createdAt: new Date(t.created_at_time).toISOString(),
   }));
 
+  const handlePageChange = (newPage: number) => {
+    setPage(newPage);
+  };
+
   const handleSearchTransaction = (searchValue: string) => {
     setSearchKeyword(searchValue);
     console.log(searchValue);
@@ -78,26 +83,11 @@ const Dashboard = () => {
         ) : (
           <div className="">
             <TanstackTable data={transactions} columns={columns} />
-            <div className="my-10 flxe text-center mr-40 text-lg">
-              <button
-                disabled={page === 1}
-                className="border border-slate-300 py-1 px-4 hover:bg-blue-50 disabled:opacity-50 rounded-tl rounded-bl"
-                onClick={() => setPage(page - 1)}
-              >
-                Prev
-              </button>
-
-              <button className="border-y border-blue-500 py-1 px-6 bg-blue-500 text-white">
-                {page}
-              </button>
-              <button
-                disabled={page >= lastPage}
-                className="border border-slate-300 py-1 px-4 hover:bg-blue-50 disabled:opacity-50 rounded-tr rounded-br"
-                onClick={() => setPage(page + 1)}
-              >
-                Next
-              </button>
-            </div>
+            <Pagination
+              page={page}
+              lastPage={lastPage}
+              onPageChange={handlePageChange}
+            />
           </div>
         )}
       </div>
