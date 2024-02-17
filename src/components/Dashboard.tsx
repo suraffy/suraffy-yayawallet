@@ -8,6 +8,8 @@ import SearchBar from "./common/SearchBar";
 import Pagination from "./common/Pagination";
 import HelpCenter from "./HelpCenter";
 import Footer from "./common/Footer";
+import Loading from "./common/Loading";
+import NotFound from "./common/NotFound";
 
 const columns = [
   {
@@ -80,13 +82,13 @@ const Dashboard = () => {
       <SearchBar onSearch={handleSearchTransaction} />
       <div className="containerr px-5 mt-5">
         {isLoading ? (
-          <p>Loading...</p>
+          <Loading />
         ) : isError ? (
           <p>Not Found - 404</p>
         ) : (
           <div className="">
             <TanstackTable data={transactions} columns={columns} />
-            {transactions.length === 0 ? <p>No data available</p> : undefined}
+            {transactions.length === 0 ? <NotFound /> : undefined}
             {lastPage >= 2 ? (
               <Pagination
                 page={page}
