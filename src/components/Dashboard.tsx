@@ -8,13 +8,22 @@ import SearchBar from "./common/SearchBar";
 import Footer from "./common/Footer";
 
 const columns = [
-  { accessorKey: "transactionID", header: "Transaction ID" },
+  {
+    accessorKey: "transactionID",
+    header: "Transaction ID",
+    cell: (info) =>
+      `${info.getValue().slice(0, 4)}...${info.getValue().slice(-2)}`,
+  },
   { accessorKey: "sender", header: "Sender" },
   { accessorKey: "receiver", header: "Receiver" },
   { accessorKey: "amount", header: "Amount" },
   { accessorKey: "currency", header: "Currency" },
   { accessorKey: "cause", header: "Cause" },
-  { accessorKey: "createdAt", header: "Created At" },
+  {
+    accessorKey: "createdAt",
+    header: "Created At",
+    cell: (info) => `${info.getValue().replace("T", " ").replace("Z", "")}`,
+  },
 ];
 
 const Dashboard = () => {
