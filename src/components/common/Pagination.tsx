@@ -1,10 +1,11 @@
 interface Props {
   page: number;
   lastPage: number;
+  isFetching: boolean;
   onPageChange: (newPage: number) => void;
 }
 
-const Pagination = ({ page, lastPage, onPageChange }: Props) => {
+const Pagination = ({ page, lastPage, isFetching, onPageChange }: Props) => {
   return (
     <div className="my-10 flxe text-center mr-40 text-lg">
       <button
@@ -16,7 +17,7 @@ const Pagination = ({ page, lastPage, onPageChange }: Props) => {
       </button>
 
       <button className="border-y border-blue-500 py-1 px-6 bg-blue-500 text-white">
-        {page}
+        {isFetching ? "..." : page}
       </button>
       <button
         disabled={page >= lastPage}

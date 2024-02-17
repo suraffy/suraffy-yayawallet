@@ -40,12 +40,17 @@ const Dashboard = () => {
   const key = searchKeyword === "" ? ["transaction", page] : "search";
   const method = searchKeyword === "" ? "GET" : "POST";
 
-  const { data, isLoading, isError } = useFetchData(key, method, apiEndpoint, {
-    query: searchKeyword,
-  });
+  const { data, isLoading, isError, isFetching } = useFetchData(
+    key,
+    method,
+    apiEndpoint,
+    {
+      query: searchKeyword,
+    }
+  );
 
   const lastPage = data?.data.lastPage;
-  console.log(lastPage);
+  console.log({ lastPage });
 
   const transactions = data?.data.data.map((t: Transaction) => ({
     transactionID: t.id,
@@ -57,13 +62,13 @@ const Dashboard = () => {
     createdAt: new Date(t.created_at_time).toISOString(),
   }));
 
+  console.log({ isFetching });
   const handlePageChange = (newPage: number) => {
     setPage(newPage);
   };
 
   const handleSearchTransaction = (searchValue: string) => {
     setSearchKeyword(searchValue);
-    console.log(searchValue);
   };
 
   return (
@@ -81,6 +86,7 @@ const Dashboard = () => {
             <Pagination
               page={page}
               lastPage={lastPage}
+              isFetching={isFetching}
               onPageChange={handlePageChange}
             />
           </div>
