@@ -27,7 +27,12 @@ const columns = [
   {
     accessorKey: "createdAt",
     header: "Created At",
-    cell: (info) => `${info.getValue().replace("T", " ").replace("Z", "")}`,
+    cell: (info) =>
+      `${info
+        .getValue()
+        .replace("T", " ")
+        .replace("Z", "")
+        .replace(/\.\d+$/, "")}`,
   },
 ];
 
@@ -54,7 +59,7 @@ const Dashboard = () => {
   );
 
   const lastPage = data?.data.lastPage;
-  console.log({ lastPage });
+  console.log(data?.data.data);
 
   const transactions = data?.data.data.map((t: Transaction) => ({
     transactionID: t.id,
