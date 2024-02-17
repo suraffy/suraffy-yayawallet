@@ -34,10 +34,11 @@ const Dashboard = () => {
 
   const transactionsUrl =
     "https://sura-yaya-api.onrender.com/transactions?p=" + page;
-  const searchUrl = "https://sura-yaya-api.onrender.com/search";
+  const searchUrl = "http://localhost:3000/search";
 
   const apiEndpoint = searchKeyword === "" ? transactionsUrl : searchUrl;
-  const key = searchKeyword === "" ? ["transaction", page] : "search";
+  const key =
+    searchKeyword === "" ? ["transaction", page] : ["search", searchKeyword];
   const method = searchKeyword === "" ? "GET" : "POST";
 
   const { data, isLoading, isError, isFetching } = useFetchData(
@@ -69,6 +70,8 @@ const Dashboard = () => {
 
   const handleSearchTransaction = (searchValue: string) => {
     setSearchKeyword(searchValue);
+    console.log({ apiEndpoint });
+    console.log(searchKeyword);
   };
 
   return (
@@ -83,12 +86,15 @@ const Dashboard = () => {
         ) : (
           <div className="">
             <TanstackTable data={transactions} columns={columns} />
-            <Pagination
-              page={page}
-              lastPage={lastPage}
-              isFetching={isFetching}
-              onPageChange={handlePageChange}
-            />
+            {transactions.length === 0 ? <p>No data available</p> : undefined}
+            {lastPage >= 2 ? (
+              <Pagination
+                page={page}
+                lastPage={lastPage}
+                isFetching={isFetching}
+                onPageChange={handlePageChange}
+              />
+            ) : undefined}
           </div>
         )}
       </div>
