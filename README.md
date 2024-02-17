@@ -26,7 +26,7 @@ To run this project locally, follow these steps:
 
 ## Contact
 
-For any inquiries or feedback, you can find my contacts at [https://suraffy.netlify.app].
+For any inquiries or feedback, you can find my contacts at https://suraffy.netlify.app.
+
 
 Thank you for checking out my project!
-
