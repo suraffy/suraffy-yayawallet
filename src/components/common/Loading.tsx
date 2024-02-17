@@ -1,4 +1,4 @@
-const NotFound = () => {
+const Loading = () => {
   return (
     <div className="flex flex-col bg-gray-50 items-center justify-center mt-12 lg:mr-40 p-6">
       <h1 className="text-4xl font-bold mb-4 flex items-center gap-x-2">
@@ -12,4 +12,4 @@ const NotFound = () => {
   );
 };
 
-export default NotFound;
+export default Loading;

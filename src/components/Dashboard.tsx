@@ -10,6 +10,7 @@ import HelpCenter from "./HelpCenter";
 import Footer from "./common/Footer";
 import Loading from "./common/Loading";
 import NotFound from "./common/NotFound";
+import ErrorMessage from "./common/ErrorMessage";
 
 const columns = [
   {
@@ -84,7 +85,7 @@ const Dashboard = () => {
         {isLoading ? (
           <Loading />
         ) : isError ? (
-          <p>Not Found - 404</p>
+          <ErrorMessage />
         ) : (
           <div className="">
             <TanstackTable data={transactions} columns={columns} />
