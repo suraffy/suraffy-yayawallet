@@ -2,8 +2,8 @@ import Card from "./common/Card";
 
 const HelpCenter = () => {
   return (
-    <div className="my-40 bg-blue-50 py-20" id="help-center">
-      <div className="container">
+    <div className="mt-40 bg-blue-50 py-20" id="help-center">
+      <div className="container my-10">
         <div className="flex gap-y-8 justify-center items-center sm:gap-y-0 sm:gap-x-8 sm:items-stretch flex-col sm:flex-row">
           <Card
             header="Digital wallet payment"

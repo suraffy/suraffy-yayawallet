@@ -83,7 +83,10 @@ const Dashboard = () => {
 
   return (
     <>
-      <Header />
+      <div className="sticky top-0 w-full bg-white z-10">
+        <Header />
+      </div>
+
       <SearchBar onSearch={handleSearchTransaction} />
       <div className="containerr px-5 mt-5">
         {isLoading ? (
