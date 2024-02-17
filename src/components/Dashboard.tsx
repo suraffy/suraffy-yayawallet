@@ -16,6 +16,7 @@ const columns = [
   {
     accessorKey: "transactionID",
     header: "Transaction ID",
+    // @ts-expect-error - info
     cell: (info) =>
       `${info.getValue().slice(0, 4)}...${info.getValue().slice(-2)}`,
   },
@@ -27,6 +28,7 @@ const columns = [
   {
     accessorKey: "createdAt",
     header: "Created At",
+    // @ts-expect-error - info
     cell: (info) =>
       `${info
         .getValue()
@@ -58,7 +60,6 @@ const Dashboard = () => {
   );
 
   const lastPage = data?.data.lastPage;
-  console.log(data?.data.data);
 
   const transactions = data?.data.data.map((t: Transaction) => ({
     transactionID: t.id,
@@ -70,15 +71,12 @@ const Dashboard = () => {
     createdAt: new Date(t.created_at_time).toISOString(),
   }));
 
-  console.log({ isFetching });
   const handlePageChange = (newPage: number) => {
     setPage(newPage);
   };
 
   const handleSearchTransaction = (searchValue: string) => {
     setSearchKeyword(searchValue);
-    console.log({ apiEndpoint });
-    console.log(searchKeyword);
   };
 
   return (

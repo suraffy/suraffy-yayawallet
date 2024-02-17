@@ -24,6 +24,7 @@ const TanstackTable = ({ data, columns }: Props) => {
     state: {
       sorting: sorting,
     },
+    // @ts-expect-error - onSortingChange
     onSortingChange: setSorting,
   });
 
@@ -46,7 +47,10 @@ const TanstackTable = ({ data, columns }: Props) => {
                         header.getContext()
                       )}
 
-                  {{ asc: "⬆", desc: "⬇" }[header.column.getIsSorted() ?? null]}
+                  {
+                    // @ts-expect-error - getIssorting
+                    { asc: "⬆", desc: "⬇" }[header.column.getIsSorted() ?? null]
+                  }
                 </th>
               ))}
             </tr>
