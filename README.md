@@ -1,4 +1,4 @@
-# Suraffy-YaYaWallet Front-End
+# Suraffy-YaYaWallet
 
 Welcome to the Yayawallet Front-End repository! This project is part of my application for the Full-Stack Developer position at Yaya Wallet.
 
@@ -23,6 +23,10 @@ To run this project locally, follow these steps:
 
 - `src/`: Contains the source code for the front-end application.
 - `public/`: Includes static assets and the HTML template.
+
+## Contact
+
+For any inquiries or feedback, you can find my contacts at [https://suraffy.netlify.app].
 
 Thank you for checking out my project!
 
