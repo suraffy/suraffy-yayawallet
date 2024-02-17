@@ -17,7 +17,7 @@ const useFetchData = (
     staleTime: 30000, // 30 seconds
     refetchOnMount: false,
     refetchOnWindowFocus: false,
-    keepPreviousData: true,
+    keepPreviousData: method === "GET",
   });
 };
 

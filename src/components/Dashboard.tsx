@@ -45,8 +45,7 @@ const Dashboard = () => {
   const searchUrl = "https://sura-yaya-api.onrender.com/search";
 
   const apiEndpoint = searchKeyword === "" ? transactionsUrl : searchUrl;
-  const key =
-    searchKeyword === "" ? ["transaction", page] : ["search", searchKeyword];
+  const key = searchKeyword === "" ? ["transaction", page] : searchKeyword;
   const method = searchKeyword === "" ? "GET" : "POST";
 
   const { data, isLoading, isError, isFetching } = useFetchData(
