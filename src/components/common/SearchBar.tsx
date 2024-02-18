@@ -15,7 +15,7 @@ const SearchBar = ({ onSearch }: Props) => {
   return (
     <div className="container mt-10">
       <form className="max-w-lg" onSubmit={handleFormSubmit}>
-        <div className="relative w-80">
+        <div className="relative max-w-80">
           <input
             type="search"
             id="search-dropdown"
