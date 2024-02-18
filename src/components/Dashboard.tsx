@@ -86,13 +86,13 @@ const Dashboard = () => {
       </div>
 
       <SearchBar onSearch={handleSearchTransaction} />
-      <div className="containerr px-5 mt-5">
+      <div className="md:px-2 lg:px-5 2xl:px-20 mt-5">
         {isLoading ? (
           <Loading />
         ) : isError ? (
           <ErrorMessage />
         ) : (
-          <div className="">
+          <div className="" style={{ overflowX: "auto" }}>
             <TanstackTable data={transactions} columns={columns} />
             {transactions.length === 0 ? <NotFound /> : undefined}
             {lastPage >= 2 ? (
