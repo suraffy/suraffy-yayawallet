@@ -1,30 +1,32 @@
-# React + TypeScript + Vite
+# Suraffy-YaYaWallet
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Yayawallet Front-End repository! This project is part of my application for the Full-Stack Developer position at Yaya Wallet.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This front-end application is built using [insert technologies and frameworks used, e.g., React.js, TypeScript, React-Query, Tailwind CSS]. It interacts with the Yaya Wallet API to provide the intended features. [wallet-api repo](https://github.com/suraffy/yaya-api)
 
-## Expanding the ESLint configuration
+## Deployment
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+The application is deployed on Netlify and can be accessed [here](https://suraffy-yayawallet.netlify.app).
 
-- Configure the top-level `parserOptions` property like this:
+## Installation
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+To run this project locally, follow these steps:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Clone the repository: `git clone https://github.com/suraffy/suraffy-yayawallet.git`
+2. Navigate to the project directory: `cd suraffy-yayawallet`
+3. Install dependencies: `npm install`
+4. Start the development server: `npm run dev`
+
+## Repository Structure
+
+- `src/`: Contains the source code for the front-end application.
+- `public/`: Includes static assets and the HTML template.
+
+## Contact
+
+For any inquiries or feedback, you can find my contacts at https://suraffy.netlify.app.
+
+
+Thank you for checking out my project!
