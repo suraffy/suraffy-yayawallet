@@ -17,8 +17,11 @@ const columns = [
     accessorKey: "transactionID",
     header: "Transaction ID",
     // @ts-expect-error - info
-    cell: (info) =>
-      `${info.getValue().slice(0, 4)}...${info.getValue().slice(-2)}`,
+    cell: (info) => (
+      <span data-title={info.getValue()}>
+        {`${info.getValue().slice(0, 4)}...${info.getValue().slice(-2)}`}
+      </span>
+    ),
   },
   { accessorKey: "sender", header: "Sender" },
   { accessorKey: "receiver", header: "Receiver" },
