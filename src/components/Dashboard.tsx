@@ -97,16 +97,16 @@ const Dashboard = () => {
         ) : (
           <div className="" style={{ overflowX: "auto" }}>
             <TanstackTable data={transactions} columns={columns} />
-            {transactions.length === 0 ? <NotFound /> : undefined}
-            {lastPage >= 2 ? (
-              <Pagination
-                page={page}
-                lastPage={lastPage}
-                isFetching={isFetching}
-                onPageChange={handlePageChange}
-              />
-            ) : undefined}
           </div>
+          {transactions.length === 0 ? <NotFound /> : undefined}
+          {lastPage >= 2 ? (
+            <Pagination
+              page={page}
+              lastPage={lastPage}
+              isFetching={isFetching}
+              onPageChange={handlePageChange}
+            />
+          ) : undefined}
         )}
       </div>
 
