@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <div className="shadow overflow-x-clip">
       <header className="container flex justify-between">
-        <img src={yayawalletLogo} width={200} alt="" />
+        <img src={yayawalletLogo} width={140} alt="" />
 
         <ul className="flex text-lg">
           <li className="hover:bg-blue-50 flex items-center">
